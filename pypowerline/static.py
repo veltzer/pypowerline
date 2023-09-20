@@ -1,5 +1,5 @@
 """ version which can be consumed from within the module """
-VERSION_STR = "0.0.1"
+VERSION_STR = "0.0.2"
 DESCRIPTION = "sane powerline"
 APP_NAME = "pypowerline"
 LOGGER_NAME = "pypowerline"

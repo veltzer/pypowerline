@@ -1,6 +1,7 @@
 """
 main
 """
+import os
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
 from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
@@ -11,7 +12,8 @@ from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
     description="do bash",
 )
 def bash() -> None:
-    print("pypowerline> ", end="")
+    cwd = os.getcwd()
+    print(f"{cwd} > ", end="")
 
 
 @register_main(
