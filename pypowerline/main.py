@@ -16,6 +16,30 @@ def bash() -> None:
     print(f"{cwd} > ", end="")
 
 
+@register_endpoint(
+    configs=[],
+    description="print special symbols (used for development)",
+)
+def dump_symbols() -> None:
+    symbols = {
+        'detached': '\u2693',
+        'ahead': '\u2B06',
+        'behind': '\u2B07',
+        'staged': '\u2714',
+        'changed': '\u270E',
+        'new': '?',
+        'conflicted': '\u273C',
+        'stash': '\u2398',
+        'git': '\uE0A0',
+        'hg': '\u263F',
+        'bzr': '\u2B61\u20DF',
+        'fossil': '\u2332',
+        'svn': '\u2446'
+    }
+    for k, v in symbols.items():
+        print(k, v)
+
+
 @register_main(
     main_description=DESCRIPTION,
     app_name=APP_NAME,
