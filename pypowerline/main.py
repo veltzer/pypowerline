@@ -34,7 +34,12 @@ def dump_symbols() -> None:
         'hg': '\u263F',
         'bzr': '\u2B61\u20DF',
         'fossil': '\u2332',
-        'svn': '\u2446'
+        'svn': '\u2446',
+        'separator': '\u25B6',
+        'separator_b': '\uE0B0',
+        'separator_thin': '\u276F',
+        'separator_thin_b': '\uE0B1',
+        'lock': '\uE0A2',
     }
     for k, v in symbols.items():
         print(k, v)
