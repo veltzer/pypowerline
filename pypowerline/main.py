@@ -18,6 +18,15 @@ def bash() -> None:
 
 @register_endpoint(
     configs=[],
+    description="do tmux",
+)
+def tmux() -> None:
+    cwd = os.getcwd()
+    print(f"{cwd} > ", end="")
+
+
+@register_endpoint(
+    configs=[],
     description="print special symbols (used for development)",
 )
 def dump_symbols() -> None:
