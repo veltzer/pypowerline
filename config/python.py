@@ -10,8 +10,8 @@ make_requires = [
     "pydmt",
 ]
 install_requires = [
-    "pylogconf",
     "pytconf",
+    "termcolor",
 ]
 test_requires = [
     "pytest",
