@@ -33,8 +33,8 @@ setuptools.setup(
         "python3",
     ],
     install_requires=[
-        "pylogconf",
         "pytconf",
+        "termcolor",
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
