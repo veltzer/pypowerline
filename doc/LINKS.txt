@@ -1,1 +1,2 @@
 https://github.com/shimtom/powerline-exitstatus
+https://pypi.org/search/?q=powerline

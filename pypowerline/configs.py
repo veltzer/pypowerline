@@ -1,16 +1,18 @@
 """
 All configurations for pypowerline
 """
-import os
-
 from pytconf import Config, ParamCreator
 
 
-class ConfigDummy(Config):
+class ConfigGeneral(Config):
     """
     Parameters for configuring the separator
     """
-    separator = ParamCreator.create_str(
-        help_string="What is the path separator?",
-        default=os.pathsep,
+    icons = ParamCreator.create_bool(
+        help_string="Should we show icons?",
+        default=True,
+    )
+    colors = ParamCreator.create_bool(
+        help_string="Should we use colors?",
+        default=True,
     )

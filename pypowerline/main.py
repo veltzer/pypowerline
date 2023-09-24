@@ -10,24 +10,30 @@ from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
 
 
 symbols = {
-    'detached': '\u2693',
-    'ahead': '\u2B06',
-    'behind': '\u2B07',
-    'staged': '\u2714',
-    'changed': '\u270E',
-    'new': '?',
-    'conflicted': '\u273C',
-    'stash': '\u2398',
-    'git': '\uE0A0',
-    'hg': '\u263F',
-    'bzr': '\u2B61\u20DF',
-    'fossil': '\u2332',
-    'svn': '\u2446',
-    'separator': '\u25B6',
-    'separator_b': '\uE0B0',
-    'separator_thin': '\u276F',
-    'separator_thin_b': '\uE0B1',
-    'lock': '\uE0A2',
+    "detached": "\u2693",
+    "ahead": "\u2B06",
+    "behind": "\u2B07",
+    "staged": "\u2714",
+    "changed": "\u270E",
+    "new": "?",
+    "conflicted": "\u273C",
+    "stash": "\u2398",
+    "git": "\uE0A0",
+    "hg": "\u263F",
+    "bzr": "\u2B61\u20DF",
+    "fossil": "\u2332",
+    "svn": "\u2446",
+    "separator": "\u25B6",
+    "separator_b": "\uE0B0",
+    "separator_thin": "\u276F",
+    "separator_thin_b": "\uE0B1",
+    "lock": "\uE0A2",
+    "folder": "\U0001F5C1",
+    "virtual_env": "\U0001F40D",
+    "battery": "\U0001F50C",
+    "ellipsis": "\u2026",
+    "bat": "\u26A1",
+    "up": "\u2191",
 }
 
 
@@ -39,7 +45,8 @@ def bash() -> None:
     cwd = os.getcwd()
     # print(f"{cwd} > ", end="")
     cprint(f"{cwd}", "black", "on_light_magenta", end="")
-    cprint(f"{symbols['separator_b']}", "light_cyan", "on_black", end="")
+    symbol = symbols["separator_b"]
+    cprint(f"{symbol}", "light_cyan", "on_black", end="")
 
 
 @register_endpoint(
@@ -70,5 +77,5 @@ def main():
     config_arg_parse_and_launch()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
