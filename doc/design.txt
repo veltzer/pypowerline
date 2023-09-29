@@ -1,0 +1,13 @@
+we will use jsonpicklen to serialze the configuration of pypowerline
+which is just a list of Segments.
+
+pypowerline will load the config file, create a list of segments and will call them to print themselves.
+Thats it.
+
+In addition there will be global config options, which will take effect if something is not written
+in the config file.
+Each segment will have its own config.
+	ConfigSegmentCwd
+	ConfigSegmentGit
+	ConfigSegmentPython
+and so on.
