@@ -7,6 +7,7 @@ import os.path
 class Segment(ABC):
     def __init__(self):
         pass
+
     @abstractmethod
     def get_text(self):
         """ return the text of the segment """
@@ -22,12 +23,16 @@ class SegmentCwd(Segment):
     def __init__(self):
         self.color = None
         self.last_only = True
+        self.home_as_tilde = True
+        self.home_directory = os.path.expanduser("~")
 
     def get_text(self):
         cwd = os.getcwd()
+        if cwd.startswith(self.home_directory):
+            cwd = "~/" + cwd[len(self.home_as_tilde):]
         if self.last_only:
             return os.path.basename(cwd)
-        return os.getcwd()
+        return cwd()
 
     def get_color(self):
         return self.color
