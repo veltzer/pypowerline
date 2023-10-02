@@ -5,6 +5,8 @@ import os.path
 
 
 class Segment(ABC):
+    def __init__(self):
+        pass
     @abstractmethod
     def get_text(self):
         """ return the text of the segment """

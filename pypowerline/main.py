@@ -49,6 +49,7 @@ def bash() -> None:
     with open(configfile, "rt") as stream:
         json_str = stream.read()
     segments = jsonpickle.decode(json_str)
+    print(segments)
     for segment in segments:
         print(segment.get_text(), end="")
 
