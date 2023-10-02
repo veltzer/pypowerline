@@ -31,7 +31,7 @@ class SegmentCwd(Segment):
 
     def get_text(self):
         cwd = os.getcwd()
-        if cwd.startswith(self.home_directory):
+        if self.home_as_tilde and cwd.startswith(self.home_directory):
             cwd = "~" + cwd[len(self.home_directory):]
         if self.last_only:
             return os.path.basename(cwd)
