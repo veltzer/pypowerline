@@ -34,9 +34,18 @@ def bash() -> None:
     for segment in segments:
         text = ""
         if segment.icon is not None:
-            text += segment.icon.value + " "
+            # TODO: why the two spaces here? Is it because it's unicode?
+            text += segment.icon.value + "  "
         text += segment.get_text()
-        print(text, end="")
+        if segment.separator is not None:
+            text += segment.separator.value
+        if segment.color is not None:
+            if segment.backgroud is not None:
+                cprint(text, segment.color.value, "on_" + segment.backgroud.value, end="")
+            else:
+                cprint(text, segment.color.value, end="")
+        else:
+            print(text, end="")
 
 
 @register_endpoint(
