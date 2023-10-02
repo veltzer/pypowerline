@@ -45,8 +45,8 @@ def bash() -> None:
                     # cprint(text, segment.background.value, "on_" + segment.color.value, end="")
                     cprint(
                         text,
-                        "on_" + segment.color.value,
-                        segment.background.value,
+                        segment.color.value,
+                        "on_" + segment.background.value,
                         attrs=["reverse"],
                         end="",
                     )
