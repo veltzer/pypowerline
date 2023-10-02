@@ -2,7 +2,6 @@ from enum import Enum
 
 
 class Symbol(Enum):
-    NONE = "None"
     DETACHED = "\u2693"
     AHEAD = "\u2B06"
     BEHIND = "\u2B07"
