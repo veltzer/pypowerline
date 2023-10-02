@@ -24,10 +24,10 @@ class Segment(ABC):
 
 
 class SegmentCwd(Segment):
-    def setup(self):
-        self.color = "green"
-        self.last_only = True
-        self.home_as_tilde = True
+    def __init__(self, color="green", last_only=False, home_as_tilde=True):
+        self.color = color
+        self.last_only = last_only
+        self.home_as_tilde = home_as_tilde
         self.home_directory = os.path.expanduser("~")
 
     def get_text(self):
