@@ -1,5 +1,16 @@
-we will use jsonpicklen to serialze the configuration of pypowerline
-which is just a list of Segments.
+how to store the segments configuration:
+========================================
+I wanted to store them as json serialized format but then understood that
+I will need a framework for serialization to/from objects like "jsonpickle".
+When trying it out I found issues with the fact that it does not call a constructor
+on the objects.
+Another issue is that if the end user has to write this json file he will get no help
+from any smart editor.
+
+My solution
+===========
+have the config file be a python file which is executed by pypowerline with the python "exec"
+function.
 
 pypowerline will load the config file, create a list of segments and will call them to print themselves.
 Thats it.
