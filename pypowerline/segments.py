@@ -17,7 +17,7 @@ class Segment(ABC):
             separator: Optional[Symbol] = Symbol.SEPARATOR,
     ):
         self.color = color
-        self.backgroud = background
+        self.background = background
         self.icon = icon
         self.separator = separator
 
@@ -32,7 +32,7 @@ class SegmentCwd(Segment):
             color: Optional[Color] = None,
             background: Optional[Color] = None,
             icon: Optional[Symbol] = Symbol.FOLDER,
-            separator: Optional[Symbol] = Symbol.SEPARATOR,
+            separator: Optional[Symbol] = Symbol.SEPARATOR_B,
             last_only: bool = False,
             home_as_tilde: bool = True,
     ):

@@ -40,8 +40,8 @@ def bash() -> None:
         if segment.separator is not None:
             text += segment.separator.value
         if segment.color is not None:
-            if segment.backgroud is not None:
-                cprint(text, segment.color.value, "on_" + segment.backgroud.value, end="")
+            if segment.background is not None:
+                cprint(text, segment.color.value, "on_" + segment.background.value, end="")
             else:
                 cprint(text, segment.color.value, end="")
         else:
