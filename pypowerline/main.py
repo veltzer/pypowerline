@@ -6,6 +6,7 @@ from pytconf import register_endpoint, register_main, config_arg_parse_and_launc
 
 from termcolor import cprint
 import jsonpickle
+from pypowerline.utils import execute_python_file
 
 from pypowerline.segments import SegmentCwd
 
@@ -45,12 +46,10 @@ symbols = {
     description="print a prompt for bash",
 )
 def bash() -> None:
-    configfile = os.path.expanduser("~/.config/pypowerline/segments.json")
-    with open(configfile, "rt") as stream:
-        json_str = stream.read()
-    segments = jsonpickle.decode(json_str)
-    # print(segments)
+    py_file = os.path.expanduser("~/.config/pypowerline/segments.py")
+    segments = execute_python_file(py_file)
     for segment in segments:
+        segment.setup()
         print(segment.get_text(), end="")
 
 
