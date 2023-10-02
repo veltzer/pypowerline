@@ -15,11 +15,13 @@ class Segment(ABC):
             background: Optional[Color] = None,
             icon: Optional[Symbol] = None,
             separator: Optional[Symbol] = Symbol.SEPARATOR,
+            reverse_sep: bool = True,
     ):
         self.color = color
         self.background = background
         self.icon = icon
         self.separator = separator
+        self.reverse_sep = reverse_sep
 
     @abstractmethod
     def get_text(self) -> str:
@@ -33,6 +35,7 @@ class SegmentCwd(Segment):
             background: Optional[Color] = None,
             icon: Optional[Symbol] = Symbol.FOLDER,
             separator: Optional[Symbol] = Symbol.SEPARATOR_B,
+            reverse_sep: bool = True,
             last_only: bool = False,
             home_as_tilde: bool = True,
     ):
@@ -41,6 +44,7 @@ class SegmentCwd(Segment):
             background=background,
             icon=icon,
             separator=separator,
+            reverse_sep=reverse_sep,
         )
         self.last_only = last_only
         self.home_as_tilde = home_as_tilde
