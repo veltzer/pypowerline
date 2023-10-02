@@ -2,13 +2,11 @@
 main
 """
 import os
+from typing import Dict, Any
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
 from termcolor import cprint
-import jsonpickle
 from pypowerline.utils import execute_python_file
-
-from pypowerline.segments import SegmentCwd
 
 from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
 
@@ -47,7 +45,18 @@ symbols = {
 )
 def bash() -> None:
     py_file = os.path.expanduser("~/.config/pypowerline/segments.py")
-    execute_python_file(py_file)
+    vals: Dict[str, Any] = {}
+    try:
+        execute_python_file(py_file, vals=vals)
+    # pylint: disable=broad-exception-caught
+    except Exception as e:
+        print(e)
+        print("cannot execute segments > ", end="")
+        return
+    if "segments" not in vals:
+        print("segments not defined > ", end="")
+        return
+    segments = vals["segments"]
     for segment in segments:
         segment.setup()
         print(segment.get_text(), end="")
@@ -70,16 +79,6 @@ def test() -> None:
     cprint("cwd", "white", "on_green", end="")
     cprint(f"{symbol}", "light_cyan", "on_black", end="")
     print()
-
-
-@register_endpoint(
-    configs=[],
-    description="dump some segments to the console",
-)
-def dump_segments() -> None:
-    segment = SegmentCwd()
-    segments = [segment]
-    print(jsonpickle.dumps(segments))
 
 
 @register_endpoint(

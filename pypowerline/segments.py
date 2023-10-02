@@ -16,7 +16,6 @@ class Segment(ABC):
         """ return the text of the segment """
     def get_color(self):
         """ return the color of the segment """
-        return self.color
     def get_background_color(self):
         """ return the background color of the segment """
     def get_icon(self):
@@ -33,10 +32,11 @@ class SegmentCwd(Segment):
     def get_text(self):
         cwd = os.getcwd()
         if cwd.startswith(self.home_directory):
-            cwd = "~/" + cwd[len(self.home_as_tilde):]
+            cwd = "~/" + cwd[len(self.home_directory):]
         if self.last_only:
             return os.path.basename(cwd)
         return cwd()
+
 
 class SegmentForward(Segment):
     def get_text(self):
