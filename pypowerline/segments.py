@@ -32,6 +32,7 @@ class SegmentCwd(Segment):
             color: Optional[Color] = None,
             background: Optional[Color] = None,
             icon: Optional[Symbol] = Symbol.FOLDER,
+            separator: Optional[Symbol] = Symbol.SEPARATOR,
             last_only: bool = False,
             home_as_tilde: bool = True,
     ):
@@ -39,8 +40,8 @@ class SegmentCwd(Segment):
             color=color,
             background=background,
             icon=icon,
+            separator=separator,
         )
-        self.color = color
         self.last_only = last_only
         self.home_as_tilde = home_as_tilde
         self.home_directory = os.path.expanduser("~")
@@ -64,7 +65,7 @@ class SegmentForward(Segment):
 
 class SegmentSpace(Segment):
     def __init__(self):
-        super().__init__()
+        super().__init__(separator=None)
 
     def get_text(self):
         return " "
