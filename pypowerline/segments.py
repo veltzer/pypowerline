@@ -35,7 +35,7 @@ class SegmentCwd(Segment):
             cwd = "~/" + cwd[len(self.home_directory):]
         if self.last_only:
             return os.path.basename(cwd)
-        return cwd()
+        return cwd
 
 
 class SegmentForward(Segment):
