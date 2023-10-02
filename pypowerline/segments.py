@@ -60,3 +60,11 @@ class SegmentForward(Segment):
 
     def get_text(self):
         return " > "
+
+
+class SegmentSpace(Segment):
+    def __init__(self):
+        super().__init__()
+
+    def get_text(self):
+        return " "
