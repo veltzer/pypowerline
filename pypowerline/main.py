@@ -5,7 +5,7 @@ import os
 from typing import Dict, Any, List
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
-from termcolor import cprint
+from termcolor import cprint, RESET
 from pypowerline.utils import execute_python_file
 from pypowerline.segments import Segment
 
@@ -41,17 +41,17 @@ def bash() -> None:
             text += segment.separator.value
         if segment.color is not None:
             if segment.background is not None:
+                attrs: List[str] = []
                 if segment.reverse_sep:
-                    # cprint(text, segment.background.value, "on_" + segment.color.value, end="")
-                    cprint(
-                        text,
-                        segment.color.value,
-                        "on_" + segment.background.value,
-                        attrs=["reverse"],
-                        end="",
-                    )
-                else:
-                    cprint(text, segment.color.value, "on_" + segment.background.value, end="")
+                    attrs += "reverse"
+                text += RESET
+                cprint(
+                    text,
+                    segment.color.value,
+                    "on_" + segment.background.value,
+                    attrs=attrs,
+                    end="",
+                )
             else:
                 cprint(text, segment.color.value, end="")
         else:
