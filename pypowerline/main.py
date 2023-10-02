@@ -47,7 +47,7 @@ symbols = {
 )
 def bash() -> None:
     py_file = os.path.expanduser("~/.config/pypowerline/segments.py")
-    segments = execute_python_file(py_file)
+    execute_python_file(py_file)
     for segment in segments:
         segment.setup()
         print(segment.get_text(), end="")
