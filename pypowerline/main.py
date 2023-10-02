@@ -32,9 +32,11 @@ def bash() -> None:
         return
     segments: List[Segment] = vals["segments"]
     for segment in segments:
-        if segment.show_icon:
-            print(segment.get_icon().value, " ", end="")
-        print(segment.get_text(), end="")
+        text = ""
+        if segment.icon is not None:
+            text += segment.icon.value + " "
+        text += segment.get_text()
+        print(text, end="")
 
 
 @register_endpoint(

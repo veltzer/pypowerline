@@ -12,6 +12,6 @@ project website: https://veltzer.github.io/pypowerline
 
 author: Mark Veltzer
 
-version: 0.0.18
+version: 0.0.19
 
 	Mark Veltzer <mark.veltzer@gmail.com>, Copyright © 2023
