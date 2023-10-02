@@ -2,41 +2,15 @@
 main
 """
 import os
-from typing import Dict, Any
+from typing import Dict, Any, List
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
 from termcolor import cprint
 from pypowerline.utils import execute_python_file
+from pypowerline.segments import Segment
 
+from pypowerline.symbols import Symbol
 from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
-
-
-symbols = {
-    "detached": "\u2693",
-    "ahead": "\u2B06",
-    "behind": "\u2B07",
-    "staged": "\u2714",
-    "changed": "\u270E",
-    "new": "?",
-    "conflicted": "\u273C",
-    "stash": "\u2398",
-    "git": "\uE0A0",
-    "hg": "\u263F",
-    "bzr": "\u2B61\u20DF",
-    "fossil": "\u2332",
-    "svn": "\u2446",
-    "separator": "\u25B6",
-    "separator_b": "\uE0B0",
-    "separator_thin": "\u276F",
-    "separator_thin_b": "\uE0B1",
-    "lock": "\uE0A2",
-    "folder": "\U0001F5C1",
-    "virtual_env": "\U0001F40D",
-    "battery": "\U0001F50C",
-    "ellipsis": "\u2026",
-    "bat": "\u26A1",
-    "up": "\u2191",
-}
 
 
 @register_endpoint(
@@ -56,9 +30,10 @@ def bash() -> None:
     if "segments" not in vals:
         print("segments not defined > ", end="")
         return
-    segments = vals["segments"]
+    segments: List[Segment] = vals["segments"]
     for segment in segments:
-        segment.setup()
+        if segment.show_icon:
+            print(segment.get_icon().value, " ", end="")
         print(segment.get_text(), end="")
 
 
@@ -68,7 +43,7 @@ def bash() -> None:
 )
 def test() -> None:
     cwd = os.getcwd()
-    symbol = symbols["separator_b"]
+    symbol = Symbol.SEPARATOR_B.value
     print(f"{cwd} > ", end="")
     cprint("cwd", "black", "on_light_magenta", end="")
     cprint("cwd", "black", "on_light_grey", end="")
@@ -96,8 +71,8 @@ def tmux() -> None:
     description="print special symbols (used for development)",
 )
 def dump_symbols() -> None:
-    for k, v in symbols.items():
-        print(k, v)
+    for symbol in Symbol:
+        print(symbol, symbol.value)
 
 
 @register_main(
