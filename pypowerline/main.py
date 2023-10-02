@@ -43,7 +43,7 @@ def bash() -> None:
             if segment.background is not None:
                 attrs: List[str] = []
                 if segment.reverse_sep:
-                    attrs += "reverse"
+                    attrs.append("reverse")
                 text += RESET
                 cprint(
                     text,
