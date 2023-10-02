@@ -37,10 +37,20 @@ def bash() -> None:
             # TODO: why the two spaces here? Is it because it's unicode?
             text += segment.icon.value + "  "
         text += segment.get_text()
+        if segment.color is None or segment.background is None:
+            print(text, end="")
+        else:
+            cprint(
+                text,
+                segment.color.value,
+                "on_" + segment.background.value,
+                end="",
+            )
         if segment.separator is not None:
-            text += segment.separator.value
-        if segment.color is not None:
-            if segment.background is not None:
+            text = segment.separator.value
+            if segment.color is None or segment.background is None:
+                print(text, end="")
+            else:
                 attrs: List[str] = []
                 if segment.reverse_sep:
                     attrs.append("reverse")
@@ -52,10 +62,6 @@ def bash() -> None:
                     attrs=attrs,
                     end="",
                 )
-            else:
-                cprint(text, segment.color.value, end="")
-        else:
-            print(text, end="")
 
 
 @register_endpoint(
