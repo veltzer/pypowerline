@@ -12,6 +12,7 @@ make_requires = [
 install_requires = [
     "pytconf",
     "termcolor",
+    "jsonpickle",
 ]
 test_requires = [
     "pytest",

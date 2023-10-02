@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 import os
+import os.path
 
 
 class Segment(ABC):
@@ -19,11 +20,21 @@ class Segment(ABC):
 
 
 class SegmentCwd(Segment):
-    def __init__(self, color):
-        self.color = color
+    def __init__(self):
+        self.color = None
+        self.last_only = True
 
     def get_text(self):
+        cwd = os.getcwd()
+        if self.last_only:
+            return os.path.basename(cwd)
         return os.getcwd()
 
     def get_color(self):
         return self.color
+
+    def get_background_color(self):
+        return "black"
+
+    def get_icon(self):
+        return None
