@@ -8,10 +8,8 @@ class Segment(ABC):
     @abstractmethod
     def get_text(self):
         """ return the text of the segment """
-    @abstractmethod
     def get_color(self):
         """ return the color of the segment """
-    @abstractmethod
     def get_background_color(self):
         """ return the background color of the segment """
     @abstractmethod
@@ -38,3 +36,8 @@ class SegmentCwd(Segment):
 
     def get_icon(self):
         return None
+
+
+class SegmentForward(Segment):
+    def get_text(self):
+        return " > "
