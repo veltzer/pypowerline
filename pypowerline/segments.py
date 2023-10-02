@@ -14,10 +14,12 @@ class Segment(ABC):
             color: Optional[Color] = None,
             background: Optional[Color] = None,
             icon: Optional[Symbol] = None,
+            separator: Optional[Symbol] = Symbol.SEPARATOR,
     ):
         self.color = color
         self.backgroud = background
         self.icon = icon
+        self.separator = separator
 
     @abstractmethod
     def get_text(self) -> str:
@@ -29,7 +31,7 @@ class SegmentCwd(Segment):
             self,
             color: Optional[Color] = None,
             background: Optional[Color] = None,
-            icon: Optional[Symbol] = None,
+            icon: Optional[Symbol] = Symbol.FOLDER,
             last_only: bool = False,
             home_as_tilde: bool = True,
     ):
