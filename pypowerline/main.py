@@ -15,6 +15,14 @@ from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
 
 @register_endpoint(
     configs=[],
+    description="print the location of pypowerlines config file",
+)
+def print_config_file() -> None:
+    print(os.path.expanduser("~/.config/pypowerline/segments.py"))
+
+
+@register_endpoint(
+    configs=[],
     description="print a prompt for bash",
 )
 def bash() -> None:
