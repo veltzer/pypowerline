@@ -20,6 +20,14 @@ pypowerline.configs module
    :undoc-members:
    :show-inheritance:
 
+pypowerline.create\_color module
+--------------------------------
+
+.. automodule:: pypowerline.create_color
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pypowerline.main module
 -----------------------
 
