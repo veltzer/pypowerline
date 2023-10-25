@@ -4,6 +4,7 @@
 # https://ss64.com/bash/syntax-colors.html
 # https://en.wikipedia.org/wiki/X11_color_names
 # https://en.wikipedia.org/wiki/Web_colors
+# https://unix.stackexchange.com/questions/148/colorizing-your-terminal-and-shell-environment
 
 xterm_256_colors = []
 
