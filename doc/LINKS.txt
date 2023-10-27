@@ -5,3 +5,4 @@ https://github.com/petobens/trueline
 https://github.com/ThatJoeMoore/fancy-prompt
 https://github.com/l3ct3r/bash-prompt
 https://github.com/jhidding/shell-bar
+https://starship.rs/
