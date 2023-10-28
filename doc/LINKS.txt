@@ -1,8 +1,20 @@
+powerline like projects
 https://github.com/shimtom/powerline-exitstatus
-https://pypi.org/search/?q=powerline
 https://github.com/andresgongora/synth-shell
+https://starship.rs/
+https://pypi.org/search/?q=powerline
 https://github.com/petobens/trueline
 https://github.com/ThatJoeMoore/fancy-prompt
 https://github.com/l3ct3r/bash-prompt
 https://github.com/jhidding/shell-bar
-https://starship.rs/
+
+xterm 256
+https://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+https://www.ditig.com/256-colors-cheat-sheet
+https://github.com/sindresorhus/xterm-colors
+
+vim 256 color
+https://github.com/noah/vim256-color/tree/master/submodules
+
+color themes
+https://github.com/alacritty/alacritty-theme
