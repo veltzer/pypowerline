@@ -7,6 +7,7 @@ https://github.com/petobens/trueline
 https://github.com/ThatJoeMoore/fancy-prompt
 https://github.com/l3ct3r/bash-prompt
 https://github.com/jhidding/shell-bar
+https://ohmyposh.dev/
 
 xterm 256
 https://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
