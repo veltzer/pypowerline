@@ -19,3 +19,7 @@ class Color(Enum):
     LIGHT_MAGENTA = "light_magenta"
     LIGHT_CYAN = "light_cyan"
     WHITE = "white"
+
+
+def cprint(_text: str, _foreground: Color, _background: Color, _attrs=None):
+    pass

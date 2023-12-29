@@ -11,7 +11,6 @@ make_requires = [
 ]
 install_requires = [
     "pytconf",
-    "termcolor",
 ]
 test_requires = [
     "pytest",
