@@ -5,9 +5,9 @@ import os
 from typing import Dict, Any, List
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
-from termcolor import cprint, RESET
 from pypowerline.utils import execute_python_file
 from pypowerline.segments import Segment
+from pypowerline.colors import cprint, Color
 
 from pypowerline.symbols import Symbol
 from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
@@ -50,9 +50,8 @@ def bash() -> None:
         else:
             cprint(
                 text,
-                segment.color.value,
-                "on_" + segment.background.value,
-                end="",
+                segment.color,
+                segment.background,
             )
         if segment.separator is not None:
             text = segment.separator.value
@@ -62,13 +61,12 @@ def bash() -> None:
                 attrs: List[str] = []
                 if segment.reverse_sep:
                     attrs.append("reverse")
-                text += RESET
+                    attrs.append("reset")
                 cprint(
                     text,
-                    segment.color.value,
-                    "on_" + segment.background.value,
-                    attrs=attrs,
-                    end="",
+                    segment.color,
+                    segment.background,
+                    _attrs=attrs,
                 )
 
 
@@ -80,14 +78,14 @@ def test() -> None:
     cwd = os.getcwd()
     symbol = Symbol.SEPARATOR_B.value
     print(f"{cwd} > ", end="")
-    cprint("cwd", "black", "on_light_magenta", end="")
-    cprint("cwd", "black", "on_light_grey", end="")
-    cprint("cwd", "black", "on_grey", end="")
-    cprint("cwd", "black", "on_blue", end="")
-    cprint("cwd", "black", "on_light_blue", end="")
-    cprint("cwd", "white", "on_cyan", end="")
-    cprint("cwd", "white", "on_green", end="")
-    cprint(f"{symbol}", "light_cyan", "on_black", end="")
+    cprint("cwd", Color.BLACK, Color.LIGHT_MAGENTA)
+    cprint("cwd", Color.BLACK, Color.LIGHT_GREY)
+    cprint("cwd", Color.BLACK, Color.GREY)
+    cprint("cwd", Color.BLACK, Color.BLUE)
+    cprint("cwd", Color.BLACK, Color.LIGHT_BLUE)
+    cprint("cwd", Color.WHITE, Color.CYAN)
+    cprint("cwd", Color.WHITE, Color.GREEN)
+    cprint(f"{symbol}", Color.LIGHT_CYAN, Color.BLACK)
     print()
 
 
@@ -98,7 +96,7 @@ def test() -> None:
 def tmux() -> None:
     cwd = os.getcwd()
     print(f"{cwd} > ", end="")
-    cprint(f"{cwd}", "red", "on_light_magenta", end="")
+    cprint(f"{cwd}", Color.RED, Color.LIGHT_MAGENTA)
 
 
 @register_endpoint(
