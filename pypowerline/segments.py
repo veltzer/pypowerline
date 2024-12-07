@@ -9,6 +9,7 @@ from pypowerline.colors import Color
 
 
 class Segment(ABC):
+    # pylint: disable=too-many-positional-arguments
     def __init__(
             self,
             color: Optional[Color] = None,
@@ -29,6 +30,7 @@ class Segment(ABC):
 
 
 class SegmentCwd(Segment):
+    # pylint: disable=too-many-positional-arguments
     def __init__(
             self,
             color: Optional[Color] = None,
