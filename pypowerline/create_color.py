@@ -1,3 +1,5 @@
+""" create_color.py """
+
 # https://www.ditig.com/256-colors-cheat-sheet
 # https://en.wikipedia.org/wiki/X11_color_names
 # https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim

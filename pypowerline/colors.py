@@ -1,3 +1,5 @@
+""" colors.py """
+
 from enum import Enum
 
 
