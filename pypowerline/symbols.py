@@ -1,3 +1,5 @@
+""" symbols.py """
+
 from enum import Enum
 
 

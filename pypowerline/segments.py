@@ -1,3 +1,5 @@
+""" segments.py """
+
 from abc import ABC, abstractmethod
 from typing import Optional
 
