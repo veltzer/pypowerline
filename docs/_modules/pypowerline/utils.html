@@ -31,9 +31,12 @@
           <div class="body" role="main">
             
   <h1>Source code for pypowerline.utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; utils.py &quot;&quot;&quot;</span>
+
+
 <div class="viewcode-block" id="execute_python_file">
 <a class="viewcode-back" href="../../pypowerline.html#pypowerline.utils.execute_python_file">[docs]</a>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">execute_python_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">execute_python_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">python_code</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
