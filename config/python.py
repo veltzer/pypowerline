@@ -1,8 +1,8 @@
 """ python deps for this project """
 
-console_scripts: list[str] = [
-    "pypowerline=pypowerline.main:main",
-]
+scripts: dict[str,str] = {
+    "pypowerline": "pypowerline.main:main",
+}
 
 config_requires: list[str] = [
     "pyclassifiers",
