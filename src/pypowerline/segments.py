@@ -14,10 +14,10 @@ class Segment(ABC):
     # pylint: disable=too-many-positional-arguments
     def __init__(
             self,
-            color: Optional[Color] = None,
-            background: Optional[Color] = None,
-            icon: Optional[Symbol] = None,
-            separator: Optional[Symbol] = Symbol.SEPARATOR,
+            color: Color | None = None,
+            background: Color | None = None,
+            icon: Symbol | None = None,
+            separator: Symbol | None = Symbol.SEPARATOR,
             reverse_sep: bool = True,
     ):
         self.color = color
@@ -35,10 +35,10 @@ class SegmentCwd(Segment):
     # pylint: disable=too-many-positional-arguments
     def __init__(
             self,
-            color: Optional[Color] = None,
-            background: Optional[Color] = None,
-            icon: Optional[Symbol] = Symbol.FOLDER,
-            separator: Optional[Symbol] = Symbol.SEPARATOR_B,
+            color: Color | None = None,
+            background: Color | None = None,
+            icon: Symbol | None = Symbol.FOLDER,
+            separator: Symbol | None = Symbol.SEPARATOR_B,
             reverse_sep: bool = True,
             last_only: bool = False,
             home_as_tilde: bool = True,

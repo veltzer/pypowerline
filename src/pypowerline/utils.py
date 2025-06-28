@@ -3,7 +3,7 @@
 
 def execute_python_file(file_path: str, vals=None):
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path) as file:
             python_code = file.read()
             # pylint: disable=exec-used
             exec(python_code, globals(), vals)
