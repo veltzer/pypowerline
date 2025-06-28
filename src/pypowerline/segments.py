@@ -1,7 +1,6 @@
 """ segments.py """
 
 from abc import ABC, abstractmethod
-from typing import Optional
 
 import os
 import os.path
