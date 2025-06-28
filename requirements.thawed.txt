@@ -1,10 +1,9 @@
 # THIS IS AN AUTO-GENERATED FILE. DO NOT EDIT!
+mypy
 pyclassifiers
-pytconf
-pymakehelper
 pydmt
+pylint
+pymakehelper
+pytconf
 pytest
 pytest-cov
-pylint
-flake8
-mypy
