@@ -27,7 +27,7 @@ def print_config_file() -> None:
 )
 def bash() -> None:
     py_file = os.path.expanduser("~/.config/pypowerline/segments.py")
-    vals: Dict[str, Any] = {}
+    vals: dict[str, Any] = {}
     try:
         execute_python_file(py_file, vals=vals)
     # pylint: disable=broad-exception-caught
@@ -38,7 +38,7 @@ def bash() -> None:
     if "segments" not in vals:
         print("segments not defined > ", end="")
         return
-    segments: List[Segment] = vals["segments"]
+    segments: list[Segment] = vals["segments"]
     for segment in segments:
         text = ""
         if segment.icon is not None:
@@ -58,7 +58,7 @@ def bash() -> None:
             if segment.color is None or segment.background is None:
                 print(text, end="")
             else:
-                attrs: List[str] = []
+                attrs: list[str] = []
                 if segment.reverse_sep:
                     attrs.append("reverse")
                     attrs.append("reset")
