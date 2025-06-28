@@ -2,7 +2,7 @@
 main
 """
 import os
-from typing import Dict, Any, List
+from typing import Any
 from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
 from pypowerline.utils import execute_python_file
