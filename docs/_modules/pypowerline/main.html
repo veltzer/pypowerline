@@ -35,7 +35,7 @@
 <span class="sd">main</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pytconf</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_endpoint</span><span class="p">,</span> <span class="n">register_main</span><span class="p">,</span> <span class="n">config_arg_parse_and_launch</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pypowerline.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute_python_file</span>
@@ -65,7 +65,7 @@
 <span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">bash</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">py_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.config/pypowerline/segments.py&quot;</span><span class="p">)</span>
-    <span class="n">vals</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">vals</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">execute_python_file</span><span class="p">(</span><span class="n">py_file</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="n">vals</span><span class="p">)</span>
     <span class="c1"># pylint: disable=broad-exception-caught</span>
@@ -76,7 +76,7 @@
     <span class="k">if</span> <span class="s2">&quot;segments&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;segments not defined &gt; &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="n">segments</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Segment</span><span class="p">]</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="s2">&quot;segments&quot;</span><span class="p">]</span>
+    <span class="n">segments</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Segment</span><span class="p">]</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="s2">&quot;segments&quot;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">if</span> <span class="n">segment</span><span class="o">.</span><span class="n">icon</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -96,7 +96,7 @@
             <span class="k">if</span> <span class="n">segment</span><span class="o">.</span><span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">segment</span><span class="o">.</span><span class="n">background</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">attrs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">attrs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="k">if</span> <span class="n">segment</span><span class="o">.</span><span class="n">reverse_sep</span><span class="p">:</span>
                     <span class="n">attrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;reverse&quot;</span><span class="p">)</span>
                     <span class="n">attrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;reset&quot;</span><span class="p">)</span>

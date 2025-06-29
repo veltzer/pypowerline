@@ -38,7 +38,7 @@
 <a class="viewcode-back" href="../../pypowerline.html#pypowerline.utils.execute_python_file">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">execute_python_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">python_code</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
             <span class="c1"># pylint: disable=exec-used</span>
             <span class="n">exec</span><span class="p">(</span><span class="n">python_code</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">vals</span><span class="p">)</span>
