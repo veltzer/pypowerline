@@ -42,7 +42,7 @@ def bash() -> None:
     for segment in segments:
         text = ""
         if segment.icon is not None:
-            # TODO: why the two spaces here? Is it because it's unicode?
+            # TODO: why the two spaces here? Is it because its unicode?
             text += segment.icon.value + "  "
         text += segment.get_text()
         if segment.color is None or segment.background is None:
