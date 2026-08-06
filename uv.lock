@@ -1,0 +1,42 @@
+version = 1
+revision = 3
+requires-python = ">=3.12"
+
+[[package]]
+name = "pypowerline"
+version = "0.0.32"
+source = { editable = "." }
+dependencies = [
+    { name = "pytconf" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pytconf" }]
+
+[[package]]
+name = "pytconf"
+version = "0.1.22"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "termcolor" },
+    { name = "yattag" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f4/2b/93732179a82c47ccca8062dd29f2f5d0ea6d0d047a676c63b3fc3837bdfc/pytconf-0.1.22.tar.gz", hash = "sha256:89ee627a8e2bac1bfc6dd0bee6ff8df2771ccc78cb9484892abf02c55fd9941a", size = 12197, upload-time = "2026-05-12T13:13:23.873Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/67/3c/b4cea91f575837501357dc021d75b7550005d724a751cee2e43a082169cd/pytconf-0.1.22-py3-none-any.whl", hash = "sha256:0512fc9ff107dcbedc6ec33849a7c2de008db77376cea844b1e303ebc6c0a563", size = 14873, upload-time = "2026-05-12T13:13:25.191Z" },
+]
+
+[[package]]
+name = "termcolor"
+version = "3.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/46/79/cf31d7a93a8fdc6aa0fbb665be84426a8c5a557d9240b6239e9e11e35fc5/termcolor-3.3.0.tar.gz", hash = "sha256:348871ca648ec6a9a983a13ab626c0acce02f515b9e1983332b17af7979521c5", size = 14434, upload-time = "2025-12-29T12:55:21.882Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/33/d1/8bb87d21e9aeb323cc03034f5eaf2c8f69841e40e4853c2627edf8111ed3/termcolor-3.3.0-py3-none-any.whl", hash = "sha256:cf642efadaf0a8ebbbf4bc7a31cec2f9b5f21a9f726f4ccbb08192c9c26f43a5", size = 7734, upload-time = "2025-12-29T12:55:20.718Z" },
+]
+
+[[package]]
+name = "yattag"
+version = "1.16.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1c/1a/d3b2a2b8f843f5e7138471c4a5c9172ef62bb41239aa4371784b7448110c/yattag-1.16.1.tar.gz", hash = "sha256:baa8f254e7ea5d3e0618281ad2ff5610e0e5360b3608e695c29bfb3b29d051f4", size = 29069, upload-time = "2024-11-02T22:38:30.443Z" }
