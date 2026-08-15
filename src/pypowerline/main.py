@@ -3,14 +3,14 @@ main
 """
 import os
 from typing import Any
-from pytconf import register_endpoint, register_main, config_arg_parse_and_launch
 
-from pypowerline.utils import execute_python_file
+from pytconf import config_arg_parse_and_launch, register_endpoint, register_main
+
+from pypowerline.colors import Color, cprint
 from pypowerline.segments import Segment
-from pypowerline.colors import cprint, Color
-
+from pypowerline.static import APP_NAME, DESCRIPTION, VERSION_STR
 from pypowerline.symbols import Symbol
-from pypowerline.static import DESCRIPTION, APP_NAME, VERSION_STR
+from pypowerline.utils import execute_python_file
 
 
 @register_endpoint(
@@ -31,7 +31,7 @@ def bash() -> None:
     try:
         execute_python_file(py_file, vals=vals)
     # pylint: disable=broad-exception-caught
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - user config may raise anything
         print(e)
         print("cannot execute segments > ", end="")
         return
