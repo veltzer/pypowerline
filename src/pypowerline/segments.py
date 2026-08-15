@@ -1,12 +1,11 @@
 """ segments.py """
 
-from abc import ABC, abstractmethod
-
 import os
 import os.path
+from abc import ABC, abstractmethod
 
-from pypowerline.symbols import Symbol
 from pypowerline.colors import Color
+from pypowerline.symbols import Symbol
 
 
 class Segment(ABC):
