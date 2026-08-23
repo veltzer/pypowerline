@@ -5,3 +5,4 @@ KEYWORDS = {
     "powerline-shell",
     "shell",
 }
+PYPI = true
