@@ -45,6 +45,7 @@ dev = [
     # drop this once pytconf 0.1.23 is on PyPI
     "pyyaml",
     "ruff",
+    "sphinx",
 ]
 
 [project.urls]
