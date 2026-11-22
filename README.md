@@ -5,7 +5,7 @@
 
 description: sane powerline
 
-project website: https://veltzer.github.io/pypowerline
+project website: <https://veltzer.github.io/pypowerline>
 
 author: Mark Veltzer
 
