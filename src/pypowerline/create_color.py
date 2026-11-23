@@ -11,10 +11,7 @@
 xterm_256_colors = []
 
 # Generate the color cube (216 colors)
-for r in range(6):
-    for g in range(6):
-        for b in range(6):
-            xterm_256_colors.append((r * 40, g * 40, b * 40))
+xterm_256_colors.extend((r * 40, g * 40, b * 40) for r in range(6) for g in range(6) for b in range(6))
 
 # Generate the grayscale ramp (24 colors)
 for shade in range(24):
