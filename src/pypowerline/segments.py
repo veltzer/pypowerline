@@ -9,7 +9,6 @@ from pypowerline.symbols import Symbol
 
 
 class Segment(ABC):
-    # pylint: disable=too-many-positional-arguments
     def __init__(
             self,
             color: Color | None = None,
@@ -30,7 +29,6 @@ class Segment(ABC):
 
 
 class SegmentCwd(Segment):
-    # pylint: disable=too-many-positional-arguments
     def __init__(
             self,
             color: Color | None = None,

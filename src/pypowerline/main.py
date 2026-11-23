@@ -12,6 +12,20 @@ from pypowerline.static import APP_NAME, DESCRIPTION, VERSION_STR
 from pypowerline.symbols import Symbol
 from pypowerline.utils import execute_python_file
 
+# What a user's segments.py can realistically raise while being executed.
+USER_CONFIG_ERRORS = (
+    ArithmeticError,
+    AttributeError,
+    ImportError,
+    LookupError,
+    NameError,
+    OSError,
+    RuntimeError,
+    SyntaxError,
+    TypeError,
+    ValueError,
+)
+
 
 @register_endpoint(
     configs=[],
@@ -30,8 +44,7 @@ def bash() -> None:
     vals: dict[str, Any] = {}
     try:
         execute_python_file(py_file, vals=vals)
-    # pylint: disable=broad-exception-caught
-    except Exception as e:  # noqa: BLE001 - user config may raise anything
+    except USER_CONFIG_ERRORS as e:
         print(e)
         print("cannot execute segments > ", end="")
         return

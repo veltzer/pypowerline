@@ -20,7 +20,7 @@ class SegmentCwdTests(unittest.TestCase):
             real = os.path.realpath(d)
             os.chdir(real)
             seg = SegmentCwd(home_as_tilde=False)
-            self.assertEqual(seg.get_text(), real)
+            assert seg.get_text() == real
 
     def test_home_replaced_with_tilde(self):
         with tempfile.TemporaryDirectory() as d:
@@ -30,7 +30,7 @@ class SegmentCwdTests(unittest.TestCase):
             os.chdir(sub)
             seg = SegmentCwd(home_as_tilde=True)
             seg.home_directory = real
-            self.assertEqual(seg.get_text(), "~/project/src")
+            assert seg.get_text() == "~/project/src"
 
     def test_last_only_returns_basename(self):
         with tempfile.TemporaryDirectory() as d:
@@ -39,17 +39,17 @@ class SegmentCwdTests(unittest.TestCase):
             os.makedirs(sub)
             os.chdir(sub)
             seg = SegmentCwd(last_only=True, home_as_tilde=False)
-            self.assertEqual(seg.get_text(), "leaf")
+            assert seg.get_text() == "leaf"
 
 
 class SegmentConstantTests(unittest.TestCase):
     def test_forward_text(self):
-        self.assertEqual(SegmentForward().get_text(), " > ")
+        assert SegmentForward().get_text() == " > "
 
     def test_space_text_and_no_separator(self):
         seg = SegmentSpace()
-        self.assertEqual(seg.get_text(), " ")
-        self.assertIsNone(seg.separator)
+        assert seg.get_text() == " "
+        assert seg.separator is None
 
 
 class ExecutePythonFileTests(unittest.TestCase):
@@ -60,7 +60,7 @@ class ExecutePythonFileTests(unittest.TestCase):
             name = fh.name
         try:
             utils.execute_python_file(name, vals)
-            self.assertEqual(vals["computed"], 42)
+            assert vals["computed"] == 42
         finally:
             os.unlink(name)
 
