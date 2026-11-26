@@ -18,3 +18,4 @@ Findings from a code scan on 2026-10-04.
 - `src/pypowerline/main.py:33` - `# pylint: disable=...` comments (also `src/pypowerline/segments.py:12`, `segments.py:33`, `src/pypowerline/utils.py:8`) are leftovers; pylint is not run here (ruff + mypy are). Remove them.
 - `pyproject.toml:85` - `mypy_path = "src:python:scripts"` names `python/` and `scripts/` directories that do not exist in this repo; reduce it to `src`.
 - `doc/TODO.txt:1` - the file is empty (0 bytes); delete it or fill it.
+- `src/pypowerline/main.py` - find out why the icon needs two spaces after it (a wide unicode glyph?). (was a TODO comment in the code)

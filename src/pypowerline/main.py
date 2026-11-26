@@ -2,15 +2,17 @@
 main
 """
 import os
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from pytconf import config_arg_parse_and_launch, register_endpoint, register_main
 
 from pypowerline.colors import Color, cprint
-from pypowerline.segments import Segment
 from pypowerline.static import APP_NAME, DESCRIPTION, VERSION_STR
 from pypowerline.symbols import Symbol
 from pypowerline.utils import execute_python_file
+
+if TYPE_CHECKING:
+    from pypowerline.segments import Segment
 
 # What a user's segments.py can realistically raise while being executed.
 USER_CONFIG_ERRORS = (
@@ -55,7 +57,7 @@ def bash() -> None:
     for segment in segments:
         text = ""
         if segment.icon is not None:
-            # TODO: why the two spaces here? Is it because its unicode?
+            # two spaces after the icon; why two is not known (doc/TOFIX.md)
             text += segment.icon.value + "  "
         text += segment.get_text()
         if segment.color is None or segment.background is None:

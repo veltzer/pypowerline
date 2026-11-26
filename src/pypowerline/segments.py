@@ -3,9 +3,12 @@
 import os
 import os.path
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING
 
-from pypowerline.colors import Color
 from pypowerline.symbols import Symbol
+
+if TYPE_CHECKING:
+    from pypowerline.colors import Color
 
 
 class Segment(ABC):
