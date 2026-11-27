@@ -3,7 +3,7 @@
 import os
 import tempfile
 import unittest
-from typing import override
+from typing import Any, override
 
 from pypowerline import utils
 from pypowerline.segments import SegmentCwd, SegmentForward, SegmentSpace
@@ -57,7 +57,7 @@ class SegmentConstantTests(unittest.TestCase):
 
 class ExecutePythonFileTests(unittest.TestCase):
     def test_exec_populates_provided_namespace(self):
-        vals: dict = {}
+        vals: dict[str, Any] = {}
         with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as fh:
             fh.write("computed = 6 * 7\n")
             name = fh.name
