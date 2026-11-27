@@ -11,21 +11,21 @@ from pypowerline.segments import SegmentCwd, SegmentForward, SegmentSpace
 
 class SegmentCwdTests(unittest.TestCase):
     @override
-    def setUp(self):
+    def setUp(self) -> None:
         self._old_cwd = os.getcwd()
 
     @override
-    def tearDown(self):
+    def tearDown(self) -> None:
         os.chdir(self._old_cwd)
 
-    def test_plain_cwd_is_absolute_path(self):
+    def test_plain_cwd_is_absolute_path(self) -> None:
         with tempfile.TemporaryDirectory() as d:
             real = os.path.realpath(d)
             os.chdir(real)
             seg = SegmentCwd(home_as_tilde=False)
             assert seg.get_text() == real
 
-    def test_home_replaced_with_tilde(self):
+    def test_home_replaced_with_tilde(self) -> None:
         with tempfile.TemporaryDirectory() as d:
             real = os.path.realpath(d)
             sub = os.path.join(real, "project", "src")
@@ -35,7 +35,7 @@ class SegmentCwdTests(unittest.TestCase):
             seg.home_directory = real
             assert seg.get_text() == "~/project/src"
 
-    def test_last_only_returns_basename(self):
+    def test_last_only_returns_basename(self) -> None:
         with tempfile.TemporaryDirectory() as d:
             real = os.path.realpath(d)
             sub = os.path.join(real, "deep", "leaf")
@@ -46,17 +46,17 @@ class SegmentCwdTests(unittest.TestCase):
 
 
 class SegmentConstantTests(unittest.TestCase):
-    def test_forward_text(self):
+    def test_forward_text(self) -> None:
         assert SegmentForward().get_text() == " > "
 
-    def test_space_text_and_no_separator(self):
+    def test_space_text_and_no_separator(self) -> None:
         seg = SegmentSpace()
         assert seg.get_text() == " "
         assert seg.separator is None
 
 
 class ExecutePythonFileTests(unittest.TestCase):
-    def test_exec_populates_provided_namespace(self):
+    def test_exec_populates_provided_namespace(self) -> None:
         vals: dict[str, Any] = {}
         with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as fh:
             fh.write("computed = 6 * 7\n")
@@ -67,7 +67,7 @@ class ExecutePythonFileTests(unittest.TestCase):
         finally:
             os.unlink(name)
 
-    def test_missing_file_is_handled(self):
+    def test_missing_file_is_handled(self) -> None:
         # a non-existent path is caught and reported, not raised
         utils.execute_python_file("/nonexistent/does/not/exist.py", {})
 

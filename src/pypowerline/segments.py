@@ -20,7 +20,7 @@ class Segment(ABC):
             separator: Symbol | None = Symbol.SEPARATOR,
             *,
             reverse_sep: bool = True,
-    ):
+    ) -> None:
         self.color = color
         self.background = background
         self.icon = icon
@@ -43,7 +43,7 @@ class SegmentCwd(Segment):
             reverse_sep: bool = True,
             last_only: bool = False,
             home_as_tilde: bool = True,
-    ):
+    ) -> None:
         super().__init__(
             color=color,
             background=background,
@@ -65,16 +65,16 @@ class SegmentCwd(Segment):
 
 
 class SegmentForward(Segment):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
-    def get_text(self):
+    def get_text(self) -> str:
         return " > "
 
 
 class SegmentSpace(Segment):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__(separator=None)
 
-    def get_text(self):
+    def get_text(self) -> str:
         return " "

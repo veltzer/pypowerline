@@ -128,7 +128,7 @@ def dump_symbols() -> None:
     app_name=APP_NAME,
     version=VERSION_STR,
 )
-def main():
+def main() -> None:
     config_arg_parse_and_launch()
 
 

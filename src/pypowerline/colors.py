@@ -23,5 +23,5 @@ class Color(Enum):
     WHITE = "white"
 
 
-def cprint(_text: str, _foreground: Color, _background: Color, _attrs=None):
+def cprint(_text: str, _foreground: Color, _background: Color, _attrs=None) -> None:
     pass

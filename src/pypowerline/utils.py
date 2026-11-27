@@ -1,7 +1,9 @@
 """ utils.py """
 
+from typing import Any
 
-def execute_python_file(file_path: str, vals=None):
+
+def execute_python_file(file_path: str, vals: dict[str, Any] | None = None) -> None:
     try:
         with open(file_path) as file:
             python_code = file.read()
