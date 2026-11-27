@@ -18,6 +18,7 @@ class Segment(ABC):
             background: Color | None = None,
             icon: Symbol | None = None,
             separator: Symbol | None = Symbol.SEPARATOR,
+            *,
             reverse_sep: bool = True,
     ):
         self.color = color
@@ -38,6 +39,7 @@ class SegmentCwd(Segment):
             background: Color | None = None,
             icon: Symbol | None = Symbol.FOLDER,
             separator: Symbol | None = Symbol.SEPARATOR_B,
+            *,
             reverse_sep: bool = True,
             last_only: bool = False,
             home_as_tilde: bool = True,
