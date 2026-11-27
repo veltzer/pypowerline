@@ -3,15 +3,18 @@
 import os
 import tempfile
 import unittest
+from typing import override
 
 from pypowerline import utils
 from pypowerline.segments import SegmentCwd, SegmentForward, SegmentSpace
 
 
 class SegmentCwdTests(unittest.TestCase):
+    @override
     def setUp(self):
         self._old_cwd = os.getcwd()
 
+    @override
     def tearDown(self):
         os.chdir(self._old_cwd)
 
